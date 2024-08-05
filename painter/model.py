@@ -30,10 +30,22 @@ class Circle:
 
 
 class Triangle:
-        def __int__(self, point_1: Point, point_2: Point, point_3: Point):
-            self.point_1: Point = point_1
-            self.point_2: Point = point_2
-            self.point_3: Point = point_3
+            def __init__(self, point_1: Point, point_2: Point, point_3: Point):
+                self.point_1: Point = point_1
+                self.point_2: Point = point_2
+                self.point_3: Point = point_3
+
+            def area(self):
+                return abs((self.point_1.x * (self.point_2.y - self.point_3.y) +
+                            self.point_2.x * (self.point_3.y - self.point_1.y) +
+                            self.point_3.x * (self.point_1.y - self.point_2.y)) / 2)
+
+            def draw(self):
+                x = [self.point_1.x, self.point_2.x, self.point_3.x, self.point_1.x]
+                y = [self.point_1.y, self.point_2.y, self.point_3.y, self.point_1.y]
+                plt.fill(x, y, color='b')
+                plt.axis("scaled")
+                plt.show()
 
 
 
